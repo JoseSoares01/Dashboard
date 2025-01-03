@@ -168,6 +168,24 @@
             object-fit: cover;
             /* Garante que a imagem fique centralizada e preenchida */
         }
+
+        #botao {
+            width: 20px;
+            height: 20px;
+            border-radius: 10%;
+            margin-left: 10px;
+            /* Ajuste o valor conforme necessário */
+        }
+        
+        #notificacao {
+            width: 25px;
+            /* Ajuste do tamanho para o equivalente a um emoji */
+            height: 25px;
+            border-radius: 50%;
+            /* Torna a imagem redonda */
+            object-fit: cover;
+            /* Garante que a imagem fique centralizada e preenchida */
+        }
     </style>
 </head>
 
@@ -184,7 +202,7 @@
                     <span>📊</span> Dashboard
                 </a>
                 <a href="#" class="menu-item">
-                    <span>📥</span> Notificações
+                    span>📥</span> Notificações <img src="/number.png" id="notificacao">
                 </a>
                 <a href="#" class="menu-item">
                     <span>👥</span> Clientes
@@ -238,9 +256,9 @@
                     <div class="stat-change positive">+16% ↑</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-title">Tempo de Resposta</div>
-                    <div class="stat-value">8:02</div>
-                    <div class="stat-change positive">+4% ↑</div>
+                    <div class="stat-title">Saldo Disponivel para Saque</div>
+                    <div class="stat-value">R$ 7.000,00</div>
+                    <div class="stat-change positive">Sacar agora <img src="/botao.png" id="botao"></div>
                 </div>
             </div>
             <div class="chart-container">
