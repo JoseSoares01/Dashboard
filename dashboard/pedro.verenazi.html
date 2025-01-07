@@ -501,18 +501,7 @@
             setInterval(updateNotificationCount, 120000);
         });
 
-        // Reset notification counter when page closes
-window.addEventListener('beforeunload', function() {
-    localStorage.setItem('notificationCount', '5');
-});
-
-// Update notification counter
-function updateNotificationCount() {
-    const currentCount = parseInt(localStorage.getItem('notificationCount')) || 5;
-    const newCount = currentCount + Math.floor(Math.random() * 3) + 1;
-    localStorage.setItem('notificationCount', newCount);
-    document.getElementById('notificationCount').textContent = newCount;
-}
+       
 
 // Initial load
 window.addEventListener('load', function() {
