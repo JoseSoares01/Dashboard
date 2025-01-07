@@ -269,10 +269,51 @@
             width: 20px;
             height: 20px;
         }
+
+        #notificacao {
+            width: 20px;
+            height: 20px;
+        }
+        
+        #notification-container {
+            position: fixed;
+            bottom: 820px;
+            right: 350px;
+            z-index: 9999;
+        }
+        
+        .toast-notification {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0, 255, 102, 0.15);
+            border: 1px solid #00ff66;
+            transform: translateY(100%);
+            opacity: 0;
+            animation: slideIn 0.5s forwards, fadeOut 0.5s 2.5s forwards;
+            min-width: 300px;
+        }
+        
+        @keyframes slideIn {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeOut {
+            to {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <div id="notification-container"></div>
     <div class="container">
         <div class="sidebar">
             <div class="logo">
@@ -510,6 +551,46 @@ window.addEventListener('load', function() {
     // Update every 2 minutes
     setInterval(updateNotificationCount, 120000);
 });
+
+        function showNotification(message) {
+            const container = document.getElementById('notification-container');
+            const notification = document.createElement('div');
+            notification.className = 'toast-notification';
+            notification.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="color: #00ff66;">🔔</span>
+            <div>
+                <div style="font-weight: 500; margin-bottom: 4px;">Nova Notificação</div>
+                <div style="font-size: 14px; color: #888;">${message}</div>
+            </div>
+        </div>
+    `;
+
+            container.appendChild(notification);
+
+            // Remove notification after animation completes
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Example notifications
+        const notifications = [
+            "Nova venda realizada: €23,99",
+            "Pagamento processado com sucesso",
+            "Nova avaliação do cliente",
+            "Meta diária atingida!",
+            "Novo cliente registrado"
+        ];
+
+        // Show a random notification every 2 minutes
+        setInterval(() => {
+            const randomMessage = notifications[Math.floor(Math.random() * notifications.length)];
+            showNotification(randomMessage);
+        }, 120000);
+
+        // Show initial notification
+        showNotification("Bem-vindo ao Cart Panda Pay!");
     </script>
 </body>
 
