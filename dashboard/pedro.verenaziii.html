@@ -341,7 +341,7 @@
                 </a>
                <a href="#" class="menu-item">
                 <span>📥</span> Pagamentos
-                <span class="notification" id="notificationCount" style="color: white; background-color: red; font-size: 12px; padding: 2px 6px; border-radius: 12px;">10</span>
+                <span class="notification" id="notificationCount" style="color: white; background-color: red; font-size: 12px; padding: 2px 6px; border-radius: 12px;">3</span>
                 </a>
             </div>
             <div class="menu-section">
@@ -451,7 +451,7 @@
             data: {
                 labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12',],
                 datasets: [{
-                    label: 'Volume de Transações (R$)',
+                    label: 'Volume de Transações (€)',
                     data: [300, 450, 320, 500, 420, 350, 400, 480, 520, 480, 600, 580,],
                     borderColor: '#00ff66',
                     backgroundColor: 'rgba(0, 255, 102, 0.1)',
@@ -547,7 +547,7 @@
         window.addEventListener('load', function() {
             updateNotificationCount();
             // Update every 2 minutes (120000 milliseconds)
-            setInterval(updateNotificationCount, 120000);
+            setInterval(updateNotificationCount, 130000);
         });
 
        
